@@ -1,0 +1,6 @@
+#include <tunables/global>
+/bin/ping {
+	#include <abstractions/base>
+
+	deny capability net_raw,
+}
