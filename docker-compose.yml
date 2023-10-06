@@ -4,13 +4,15 @@ services:
     build:
       context: ./apparmor
       dockerfile: Dockerfile
-    privileged: true
     restart: 'no'
     labels:
       io.balena.features.sysfs: '1'
       io.balena.features.procfs: '1'
     environment:
       - 'ENFORCE=1'
+    cap_add:
+      - MAC_ADMIN
+      - MAC_OVERRIDE
   test:
     build:
       context: ./test
